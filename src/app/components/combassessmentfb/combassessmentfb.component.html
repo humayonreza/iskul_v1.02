@@ -1,0 +1,57 @@
+<div *ngIf="!isSubmitted" class="col-sm-12">
+  <div *ngFor="let data of arrAssessmentTypeFB; index as k">
+    <div>
+      <form #c="ngForm" autocomplete="off" (ngSubmit)="submit_answer(c.value)">
+        <div
+          class="mb-3 shadow p-2"
+          style="
+            border-radius: 5px;
+            border-right: 10px solid green;
+            border-left: 10px solid green;
+          "
+        >
+          <div class="p-1 txt-font" style="width: 100%">
+            {{ data.question_text }}
+          </div>
+          <input
+            type="hidden"
+            class="form-control txt-font"
+            name="question_id"
+            [(ngModel)]="data.question_id"
+            value="{{ data.question_id }}"
+          />
+          <div class="flex">
+            <input
+              class="form-control txt-font input"
+              name="answer"
+              [(ngModel)]="data.answer"
+              placeholder="answer"
+              style="border-radius: 2px"
+              (keyup)="on_typing_answer(data.question_id)"
+            />
+            <button
+              class="btn"
+              mat-raised-button
+              type="submit"
+              style="margin-top: -3px; font-size: 12px; width: 150px"
+            >
+              {{ submit_text }}
+              <mat-icon *ngIf="data.is_correct == 1">check</mat-icon>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12">
+  <button
+    class="btn"
+    mat-raised-button
+    [disabled]="isDisabled"
+    (click)="submit_answer_for_assessment()"
+    style="border: thin solid #000; font-size: 12px"
+  >
+    Submit Assessment
+  </button>
+</div>

@@ -1,0 +1,150 @@
+// ====================================== Scroll Bar
+::-webkit-scrollbar {
+  width: 3px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px rgb(172, 47, 47);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+  cursor: pointer;
+}
+
+// ========== Media Query ===============
+@media only screen and (min-width: 800px) {
+  .txt-font {
+    font-size: 14px;
+    font-family: Tahoma;
+    // font-family: "Sofia", sans-serif;
+  }
+  .isSmart {
+    display: none;
+  }
+
+  .isTab {
+    display: none;
+  }
+
+  .isBig {
+    display: inline;
+  }
+
+  .inner {
+    padding: 20px 50px;
+  }
+
+  .outer {
+    padding: 20px 60px;
+  }
+
+  .header {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
+/*
+  padding-campaign-option
+  inner
+  */
+
+@media only screen and (min-width: 480px) and (max-width: 750px) {
+  .txt-font {
+    font-size: 10px;
+    font-family: "Arial Narrow";
+  }
+
+  .isSmart {
+    display: none;
+  }
+
+  .isBig {
+    display: none;
+  }
+
+  .isTab {
+    display: inline;
+  }
+
+  .inner {
+    padding: 20px 60px;
+  }
+
+  .outer {
+    padding: 10px 20px;
+  }
+
+  .frame-reg {
+    padding: 30px;
+  }
+
+  .header {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 500px) {
+  .txt-font {
+    font-size: 18px;
+    font-family: "Arial Narrow";
+  }
+
+  .isTab {
+    display: none;
+  }
+
+  .isBig {
+    display: none;
+  }
+
+  .isSmart {
+    display: inline;
+  }
+
+  .inner {
+    padding: 20px;
+  }
+
+  .outer {
+    padding: 10px 20px;
+  }
+
+  .frame-reg {
+    padding: 20px 15px;
+  }
+
+  .header {
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 2px 3px #ccc;
+  }
+}
+
+.sidenav-container {
+  width: 100%;
+  color: #000;
+}
+
+.sidenav-content {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.sidenav-big {
+  width: 30%;
+}
+
+.sidenav-smart {
+  width: 100%;
+}

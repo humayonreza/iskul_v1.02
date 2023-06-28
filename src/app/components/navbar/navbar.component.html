@@ -1,0 +1,77 @@
+<nav
+  class="navbar navbar-expand-lg fixed-top shadow"
+  style="
+    padding: 0 2px;
+    background-color: #0d1226;
+    border-bottom: 3px solid #ddd;
+  "
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/" style="padding: 5px">
+      <img
+        class="shadow logo"
+        style="border: 2px solid #ddd; border-radius: 50%; padding: 5px"
+        src="{{ mediaPath + 'images/site/common/logo.png' }}"
+        alt=""
+        width="50"
+        height="50"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      style="color: white"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngFor="let li of arrNav">
+          <a
+            class="nav-link active"
+            [ngClass]="li.isActive == 1 ? 'nav-link-active' : 'nav-link'"
+            (click)="change_route(li.route)"
+            aria-current="page"
+            style="cursor: pointer"
+            >{{ li.routeName }}
+          </a>
+        </li>
+        <!-- <li>
+          <a
+            *ngIf="stateService.isSigned"
+            class="nav-link active"
+            (click)="clear_session_data()"
+            aria-current="page"
+            style="cursor: pointer"
+            >Signout
+          </a>
+        </li>
+        <li>
+          <a
+            *ngIf="!stateService.isSigned"
+            class="nav-link active"
+            (click)="signin()"
+            aria-current="page"
+            style="cursor: pointer"
+            >Signin
+          </a>
+        </li> -->
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <button
+            class="btn-action"
+            (click)="change_route('book-for-consultation')"
+          >
+            Start Free
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

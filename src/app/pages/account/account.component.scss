@@ -1,0 +1,60 @@
+.profile {
+  padding: 20px;
+  border: thin solid #eee;
+  padding: 10px;
+  border-radius: 5%;
+}
+
+.panel-account {
+  margin: 20px 1px;
+  border: 3px double #ccc;
+  background-color: #eee;
+  padding: 10px;
+}
+.header-panel:hover {
+  .icon {
+    background-color: rgb(251, 160, 4);
+    color: white;
+    font-size: 75px;
+
+    border: 5px solid white;
+  }
+  .btn-account {
+    background-color: rgb(251, 160, 4);
+    color: white;
+    font-size: 18px;
+    transition: 0.5s;
+    border: 2px solid white;
+  }
+  border-radius: 5px;
+  background-color: #0d1226;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.icon {
+  font-size: 60px;
+  color: #fff;
+  height: 100px;
+  width: 100px;
+  border: 3px solid #ccc;
+  padding-top: 8px;
+  border-radius: 50%;
+  background-color: #0d1226;
+  transition: 0.5s;
+  cursor: pointer;
+}
+// .icon:hover {
+//   background-color: rgb(160, 223, 44);
+//   color: rgb(10, 10, 152);
+//   font-size: 75px;
+//   transition: 0.5s;
+// }
+
+.table a:hover {
+  color: rgb(10, 10, 152);
+  text-decoration: underline;
+  font-weight: 900;
+  transition: 0.5s;
+  cursor: pointer;
+}

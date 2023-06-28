@@ -1,0 +1,74 @@
+<div *ngIf="!isSubmitted" class="col-sm-12 p-1">
+  <div class="shadow" *ngFor="let data of arrAssessmentTypeVA; let i = index">
+    <div class="row mb-5" style="padding: 20px 10px">
+      <div class="col-sm-7" style="border-right: thin solid #eee">
+        <div class="col-sm-12">
+          <vg-player>
+            <video
+              [vgMedia]="$any(media)"
+              #media
+              id="singleVideo"
+              preload="auto"
+              controls
+            >
+              <source
+                src="{{
+                  mediaPath +
+                    'videos/courses/' +
+                    data.course_id +
+                    '/' +
+                    data.question_id +
+                    '.mp4'
+                }}"
+                type="video/mp4"
+              />
+            </video>
+          </vg-player>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="mt-2 text-center">
+          <button
+            color="default"
+            mat-raised-button
+            (click)="start_va_by_question(data.question_id)"
+          >
+            Start Test #{{ i + 1 }}
+            <mat-icon *ngIf="data.is_correct == 1">check</mat-icon>
+          </button>
+        </div>
+        <div class="mt-2">
+          <app-takeimage
+            [validationParam]="{
+              question_id: selected_question_id,
+              student_id: student_id
+            }"
+          ></app-takeimage>
+        </div>
+        <div class="mt-2">
+          <div class="text-start txt-md">{{ data.question_text }}</div>
+        </div>
+        <div class="mt-2">
+          <app-audiorecorder
+            [assessmentObj]="{
+              question_id: data.question_id,
+              student_id: arrKeyObj.student_id,
+              course_id: arrKeyObj.course_id,
+              module_id: arrKeyObj.module_id
+            }"
+          ></app-audiorecorder>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12" *ngIf="arrAssessmentTypeVA.length > 0">
+  <button
+    color="default"
+    style="border: thin solid #ccc; margin-right: 5px"
+    mat-raised-button
+    (click)="process_answer_for_assessment()"
+  >
+    Submit Test
+  </button>
+</div>

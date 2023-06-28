@@ -1,0 +1,21 @@
+<h3>Basic Video Player</h3>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <vg-player>
+      <video
+        [vgMedia]="$any(media)"
+        #media
+        id="singleVideo"
+        preload="auto"
+        controls
+      >
+        <source
+          [src]="url"
+          type="video/mp4"
+        />
+      </video>
+    </vg-player>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

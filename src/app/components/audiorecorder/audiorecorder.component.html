@@ -1,0 +1,23 @@
+<div class="mt-2 text-center">
+  <button
+    class="mt-1"
+    (click)="initiateRecording()"
+    *ngIf="!recording"
+    mat-raised-button
+    color="default"
+  >
+    Start Recording <mat-icon *ngIf="!recording">mic_off</mat-icon>
+  </button>
+  <button
+    class="mt-1"
+    (click)="stopRecording()"
+    *ngIf="recording"
+    mat-raised-button
+    color="default"
+  >
+    Stop Recording <mat-icon *ngIf="recording">mic</mat-icon>
+  </button>
+  <audio controls="" *ngIf="url">
+    <source [src]="sanitize(url)" type="audio/wav" />
+  </audio>
+</div>

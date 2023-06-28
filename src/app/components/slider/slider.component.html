@@ -1,0 +1,110 @@
+<ngx-slick-carousel #slickModal="slick-carousel" [config]="slideShow">
+  <div ngxSlickItem *ngFor="let slider of data" class="text-center p-1">
+    <div class="p-1 shadow">
+      <div *ngIf="section == 'slider'">
+        <div class="panel-info" style="padding: 10px 12px">
+          <div class="text-center p-2 txt-header">
+            {{ slider.title }}
+          </div>
+          <!-- <div class="txt-header-sm">{{ slider.price }}</div> -->
+          <div class="txt-header-sm">
+            {{ slider.price | currency : "AUD" : "symbol" : "0.0-0" }}
+          </div>
+        </div>
+        <div>
+          <img
+            src="{{ mediaPath + 'images/site/sliders/' + slider.imgId }}"
+            width="100%"
+            height="auto"
+          />
+        </div>
+        <div class="panel-info" style="padding: 0 12px">
+          <div class="row p-2" style="border-bottom: 1px solid #444">
+            <div class="col-sm-6" *ngFor="let dx of slider.features">
+              <div class="flex-start">
+                <div style="margin-right: 10px">
+                  <mat-icon>{{ dx.icon }}</mat-icon>
+                </div>
+                <div>{{ dx.txt }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <button
+              class="mt-2 mb-2 btn-action shadow"
+              style="width: 100%"
+              (click)="call_of_action()"
+            >
+              Buy now
+            </button>
+            <button
+              class="mt-2 mb-2 btn-action shadow"
+              style="width: 100%"
+              (click)="call_of_action()"
+            >
+              Try free
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="p-1" *ngIf="section == 'review'">
+        <div class="p-1">
+          <div class="flex-start">
+            <div>
+              <mat-icon style="font-size: 25px; margin-right: 15px"
+                >person</mat-icon
+              >
+            </div>
+            <div class="txt-header-md">{{ slider.reviewerName }}</div>
+          </div>
+          <div class="mt-2">
+            {{ slider.review }}
+          </div>
+          <div
+            class="mt-2 txt-header-md"
+            style="border-top: 2px solid #333; padding: 15px; color: #222"
+          >
+            Date: {{ slider.reviewDate }}
+          </div>
+        </div>
+      </div>
+
+      <div class="p-2" *ngIf="section == 'legislations'">
+        <div class="p-1">
+          <div class="flex-start" style="border-bottom: 2px solid #eee">
+            <div>
+              <img
+                src="{{
+                  mediaPath +
+                    'images/site/sliders/flags/' +
+                    slider.state +
+                    '.png'
+                }}"
+                width="50"
+                height="auto"
+                style="border: 1px solid #ccc"
+              />
+            </div>
+            <div style="padding: 12px">
+              <h3 style="font-weight: 900">{{ slider.stateName }}</h3>
+            </div>
+          </div>
+
+          <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+            <mat-tab
+              *ngFor="let dx of slider.legislations"
+              label="{{ dx.courseId }}"
+            >
+              <div class="text-start flex-start p-1" *ngFor="let dt of dx.sop">
+                <div style="margin-right: 10px">{{ dt.title + ": " }}</div>
+                <div>
+                  {{ dt.txt }}
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-slick-carousel>

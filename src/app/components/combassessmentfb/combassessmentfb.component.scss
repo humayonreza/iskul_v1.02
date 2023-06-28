@@ -1,0 +1,12 @@
+.btn-reg {
+  border: thin solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 0.5s;
+}
+
+.btn-reg:hover {
+  border: thin solid #555;
+  background-color: #eee;
+  transition: 0.5s;
+}

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-12 outer" style="min-height: 100vh">
+    <div class="mb-2" style="margin-top: 55px">
+      <img
+        src="{{ mediaPath + 'images/site/banners/' + bannerImg }}"
+        class="img-fit img-outline"
+        width="100%"
+        height="auto"
+      />
+    </div>
+    <div class="p-3 mt-3 mb-3" *ngFor="let dx of arrContents">
+      <div>
+        <h1 style="font-weight: 900">{{ dx.title }}</h1>
+        <div class="mb-2" style="margin-top: -8px">
+          {{ dx.description }}
+        </div>
+        <ul *ngFor="let db of dx.txt">
+          <li>{{ db.text }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

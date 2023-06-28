@@ -1,0 +1,20 @@
+<div class="col-sm-12 p-2" style="min-height: 90vh">
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="col-sm-4 shadow p-5" style="margin-top: 100px">
+      <div class="text-center">
+        <h1 class="bold color-green">TRAINED UP</h1>
+      </div>
+      <div class="txt-bg">Welcome, {{ full_name }}</div>
+      <div class="txt-md mt-2 mb-3" style="padding: 5px 20px">
+        {{ downloadStatement }}
+      </div>
+      <button
+        [disabled]="!isCourseCompleted"
+        class="btn"
+        (click)="download_certificate()"
+      >
+        Download Certificate
+      </button>
+    </div>
+  </div>
+</div>

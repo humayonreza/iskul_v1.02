@@ -1,0 +1,32 @@
+<div class="flex-around">
+  <div class="text-center">
+    <button color="default" mat-fab (click)="checkPermissions()">
+      <mat-icon style="color: rgb(146, 52, 118)">camera_enhance</mat-icon>
+    </button>
+  </div>
+  <div class="txt-sm text-center mt-2" style="line-height: 15px">
+    Permit webcam to<br />capture image
+  </div>
+  <div class="p-1" style="border-radius: 50%; margin-top: -5px">
+    <button mat-fab color="default">
+      <img
+        *ngIf="previewImage"
+        [src]="previewImage"
+        height="50"
+        width="50"
+        style="border-radius: 50%"
+      />
+    </button>
+  </div>
+</div>
+
+<div class="mt-3" *ngIf="stream">
+  <webcam
+    [trigger]="$trigger"
+    (imageCapture)="snapshot($event)"
+    [imageQuality]="1"
+    [height]="88"
+    [width]="100"
+    [hidden]="true"
+  ></webcam>
+</div>

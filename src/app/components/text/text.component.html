@@ -1,0 +1,76 @@
+<div *ngIf="!stateService.enable_visit_site" style="background-color: #999">
+  <form #a="ngForm" autocomplete="off" (ngSubmit)="add_text(a.value)">
+    <div class="p-2 panel">
+      <div>
+        <textarea
+          class="form-control"
+          id="content_data"
+          name="content_data"
+          [(ngModel)]="content_data"
+          class="txtArea"
+        ></textarea>
+      </div>
+
+      <div>
+        <div class="flex txt-md">
+          <div class="text-center txt-sm" style="width: 15%">
+            <div>
+              <mat-radio-button
+                value="2"
+                (click)="set_text_style('reg')"
+              ></mat-radio-button>
+            </div>
+            <div style="padding-right: 5px; margin-top: -8px">REG</div>
+          </div>
+          <div class="text-center txt-sm" tyle="width: 15%">
+            <div>
+              <mat-radio-button
+                value="2"
+                (click)="set_text_style('header')"
+              ></mat-radio-button>
+            </div>
+            <div style="padding-left: 1px; margin-top: -8px">BOLD</div>
+            <!-- <mat-radio-button value="1" (click)="set_text_style('header')"
+              >BOLD</mat-radio-button
+            > -->
+          </div>
+          <div style="padding-right: 20px; width: 45%">
+            <select
+              class="form-select fontReg"
+              aria-label="Default"
+              id="cols"
+              name="cols"
+              [(ngModel)]="cols"
+              style="font-size: 12px"
+              (change)="on_change_width($event)"
+            >
+              <option
+                *ngFor="let data of dataService.width_options"
+                [value]="data.bs_def"
+              >
+                {{ data.title }}
+              </option>
+            </select>
+          </div>
+          <div class="text-end" style="width: 25%">
+            <button
+              class="txt-sm"
+              mat-raised-button
+              style="background-color: #444; color: #eee"
+            >
+              Add Text
+            </button>
+          </div>
+        </div>
+        <div class="text-center txt-sm">
+          {{ resp }}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- <div *ngIf="stateService.enable_visit_site">
+  <div [ngClass]="arrContent.class_name">
+    {{ arrContent.txt_data }}
+  </div>
+</div> -->

@@ -1,0 +1,71 @@
+<hr />
+<div
+  class="mt-2 txt-font"
+  *ngFor="let ques of arrAssessmentTypeMCTF; index as n"
+  [ngClass]="ques.is_correct == false ? 'ans_incorrect' : 'ans_correct'"
+>
+  <div style="color: #000">
+    <div>
+      {{ n + 1 + "." + " " + ques.question_text }}
+    </div>
+    <div *ngIf="ques.notes != 'NA'" class="mt-1 txt-md" style="padding: 0 22px">
+      {{ ques.notes }}
+    </div>
+  </div>
+
+  <div class="mt-2 mb-2">
+    <div *ngFor="let dx of ques.options; index as i" style="padding: 0 15px">
+      <div *ngIf="ques.question_type == 1" class="flex-start">
+        <div style="padding-right: 20px">
+          <mat-icon
+            class="mc_option"
+            (click)="on_option_changed(ques, dx.option_id)"
+            style="cursor: pointer"
+            >{{
+              dx.is_selected == 0 ? "check_box_outline_blank" : "check_box"
+            }}</mat-icon
+          >
+        </div>
+        <div>
+          <a
+            (click)="on_option_changed(ques, dx.option_id)"
+            style="cursor: pointer"
+            >{{ dx.option_text }}</a
+          >
+        </div>
+      </div>
+      <div class="flex-start" *ngIf="ques.question_type == 0">
+        <div style="padding-right: 20px">
+          <mat-icon
+            class="mc_option"
+            (click)="on_option_changed(ques, dx.option_id)"
+            style="cursor: pointer"
+            >{{
+              dx.is_selected == 0
+                ? "radio_button_unchecked"
+                : "radio_button_checked"
+            }}</mat-icon
+          >
+        </div>
+        <div>
+          <a
+            (click)="on_option_changed(ques, dx.option_id)"
+            style="cursor: pointer"
+            >{{ dx.option_text }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="padding: 0 15px" *ngIf="arrAssessmentTypeMCTF.length > 0">
+  <button
+    color="default"
+    [disabled]="isSubmitBtnDisabled"
+    style="border: thin solid #ccc; margin-right: 5px"
+    mat-raised-button
+    (click)="process_answer_for_assessment()"
+  >
+    Submit Test
+  </button>
+</div>

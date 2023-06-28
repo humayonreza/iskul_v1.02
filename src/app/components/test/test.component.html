@@ -1,0 +1,41 @@
+<div *ngFor="let ques of arrAssessmentType2; index as n">
+  <div style="color: #000">
+    <div [ngClass]="ques.is_correct == false ? 'ans_incorrect' : 'ans_correct'">
+      {{ n + 1 + "." + " " + ques.question_text }}
+    </div>
+    <div class="mt-1 txt-md" style="padding: 0 22px">
+      {{ ques.notes }}
+    </div>
+  </div>
+  <div>
+    <table>
+      <tr *ngFor="let dx of ques.options; index as i" style="padding: 0 15px">
+        <td style="vertical-align: top; padding-left: 20px">
+          <mat-icon (click)="on_option_select(ques, n, i)">{{
+            dx.is_selected == 0 ? "gps_not_fixed" : "gps_fixed"
+          }}</mat-icon>
+        </td>
+        <td style="vertical-align: top; padding-left: 20px">
+          <a (click)="on_option_select(ques, n, i)">{{ dx.option_text }}</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="mb-4 flex" style="padding: 5px 20px">
+    <button
+      [disabled]="isCompletedAssessment2"
+      class="btn btn-sm"
+      style="background-color: rgb(88, 88, 146); color: #fff"
+      (click)="submit_answer_for_module_assessment(ques)"
+    >
+      Answer
+    </button>
+  </div>
+</div>
+<!-- </div> -->
+<hr />
+<div style="padding: 0 15px">
+  <button (click)="compile_assessment()" class="btn btn-sm btn-success">
+    Assess your test
+  </button>
+</div>

@@ -1,0 +1,78 @@
+<div *ngFor="let ques of arrAssessmentTypeQUIZ; index as n">
+  <div style="color: #000">
+    <div [ngClass]="ques.is_correct == false ? 'ans_incorrect' : 'ans_correct'">
+      {{ n + 1 + "." + " " + ques.question_text }}
+    </div>
+    <div class="mt-1 txt-md" style="padding: 0 22px">
+      {{ ques.notes }}
+    </div>
+  </div>
+  <div class="mt-2 mb-2">
+    <div *ngFor="let dx of ques.options; index as i" style="padding: 0 15px">
+      <div *ngIf="ques.question_type == 1" class="flex-start">
+        <div style="padding-right: 20px">
+          <mat-icon
+            class="mc_option"
+            (click)="on_option_select(ques, n, i, 1, dx.option_id)"
+            style="cursor: pointer"
+            >{{
+              dx.is_selected == 0 ? "check_box_outline_blank" : "check_box"
+            }}</mat-icon
+          >
+        </div>
+        <div>
+          <a
+            (click)="on_option_select(ques, n, i, 1, dx.option_id)"
+            style="cursor: pointer"
+            >{{ dx.option_text }}</a
+          >
+        </div>
+      </div>
+      <div class="flex-start" *ngIf="ques.question_type == 0">
+        <div style="padding-right: 20px">
+          <mat-icon
+            class="mc_option"
+            (click)="on_option_select(ques, n, i, 0, dx.option_id)"
+            style="cursor: pointer"
+            >{{
+              dx.is_selected == 0
+                ? "radio_button_unchecked"
+                : "radio_button_checked"
+            }}</mat-icon
+          >
+        </div>
+        <div>
+          <a
+            (click)="on_option_select(ques, n, i, 0, dx.option_id)"
+            style="cursor: pointer"
+            >{{ dx.option_text }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div>
+    <table>
+      <tr *ngFor="let dx of ques.options; index as i" style="padding: 0 15px">
+        <td style="vertical-align: top; padding-left: 20px">
+          <mat-icon (click)="on_option_select(ques, n, i)">{{
+            dx.is_selected == 0 ? "gps_not_fixed" : "gps_fixed"
+          }}</mat-icon>
+        </td>
+        <td style="vertical-align: top; padding-left: 20px">
+          <a (click)="on_option_select(ques, n, i)">{{ dx.option_text }}</a>
+        </td>
+      </tr>
+    </table>
+  </div> -->
+  <div class="mb-4 flex" style="padding: 5px 20px">
+    <button
+      mat-raised-button
+      color="default"
+      style="border: thin solid #ccc"
+      (click)="submit_answer_for_validation(ques)"
+    >
+      Answer
+    </button>
+  </div>
+</div>

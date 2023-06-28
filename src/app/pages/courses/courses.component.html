@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-sm-12" style="min-height: 90vh; margin-top: 55px">
+    <div class="text-center mt-1">
+      <div class="row p-1">
+        <div class="col-sm-4" *ngFor="let data of stateService.arrCourses">
+          <div class="shadow" style="background-color: #0d1226">
+            <div style="padding: 10px 12px" style="color: white">
+              <div class="text-center p-2 txt-header">
+                {{ data.title }}
+              </div>
+              <div class="txt-header">
+                {{ data.price | currency : "AUD" : "symbol" : "0.0-0" }}
+              </div>
+            </div>
+            <div style="padding: 10px">
+              <img
+                style="border: thin solid #eee"
+                src="{{
+                  mediaPath + 'images/courses/courses_aval/' + data.imgId
+                }}"
+                alt=""
+                width="100%"
+                height="auto"
+              />
+            </div>
+            <div class="p-3 flex">
+              <button
+                type="button"
+                class="btn-buyTry"
+                [ngClass]="
+                  data.isSelected == 1
+                    ? 'btn-course-active'
+                    : 'btn-course-not-active'
+                "
+                style="width: 100%"
+                [disabled]="data.isSelected == 1 ? true : false"
+                (click)="
+                  start_course_owning_process(
+                    data.courseId,
+                    data.price,
+                    data.title
+                  )
+                "
+              >
+                Buy Now
+              </button>
+              <button
+                type="button"
+                class="btn-buyTry"
+                style="width: 100%"
+                [ngClass]="
+                  data.isSelected == 1
+                    ? 'btn-course-active'
+                    : 'btn-course-not-active'
+                "
+                [disabled]="data.isSelected == 1 ? true : false"
+                (click)="
+                  start_course_owning_process(
+                    data.courseId,
+                    data.price,
+                    data.title
+                  )
+                "
+              >
+                Start Free
+              </button>
+              <button
+                type="button"
+                class="btn-buyTry"
+                style="width: 100%"
+                [ngClass]="
+                  data.isSelected == 1
+                    ? 'btn-course-active'
+                    : 'btn-course-not-active'
+                "
+                (click)="
+                  start_course_owning_process(
+                    data.courseId,
+                    data.price,
+                    data.title
+                  )
+                "
+              >
+                Course Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

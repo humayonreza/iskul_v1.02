@@ -1,0 +1,45 @@
+.bg-light {
+  background-color: rgb(46, 46, 233);
+  border: thin solid #eee;
+}
+
+.mat-stepper-vertical {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+mat-stepper {
+  background-color: #fff;
+}
+
+.input {
+  padding: 15px 10px;
+  border-radius: 2px;
+  color: #555;
+  letter-spacing: 1px;
+  border: thin solid #999;
+}
+.label {
+  margin-top: 15px;
+  color: #999;
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+
+.btn-register {
+  width: 140px;
+  transition: 0.5s;
+  padding: 15px;
+  background-color: #eee;
+}
+
+.btn-register:hover {
+  background-color: #0d1226;
+  color: #fff;
+  transition: 0.5s;
+}
+
+// ===============================  INPUT ==============================

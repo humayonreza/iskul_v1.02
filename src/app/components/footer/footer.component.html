@@ -1,0 +1,13 @@
+<div class="col-sm-12 footer shadow outer">
+  <div class="text-center">
+    <h5>{{ arrContents[0].copyright }}</h5>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 mt-3" *ngFor="let footer of arrContents[0].contents">
+      <div *ngFor="let fx of footer.section">
+        <div *ngIf="fx.id == 1" class="txt-header-md">{{ fx.txt }}</div>
+        <div *ngIf="fx.id != 1" class="mt-2">{{ fx.txt }}</div>
+      </div>
+    </div>
+  </div>
+</div>

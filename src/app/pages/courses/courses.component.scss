@@ -1,0 +1,25 @@
+.input {
+  color: #000;
+  font-size: 14px;
+  border-radius: 0;
+  border: 1px solid blue;
+  margin: 2px;
+}
+
+.btn {
+  border: 1px solid lightgreen;
+  color: #fff;
+  transition: 0.5s;
+  font-size: 14px;
+  border-radius: 0;
+  background-color: green;
+}
+
+
+
+.btn:hover,
+.input:hover {
+  border: thin solid tomato;
+  transition: 0.5s;
+  font-weight: bold;
+}

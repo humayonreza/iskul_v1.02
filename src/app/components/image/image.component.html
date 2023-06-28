@@ -1,0 +1,56 @@
+<div
+  *ngIf="!stateService.enable_visit_site"
+  class="p-2 shadow light-border mt-1"
+  style="background-color: #999; color: #000"
+>
+  <div class="col-sm-12 text-start">
+    <div>
+      <div class="upload-btn-wrapper">
+        <button class="btn txt-sm text-center">
+          <input
+            #fileToUpload
+            (change)="onFileSelected($event)"
+            type="file"
+            name="myfile"
+            accept=".jpg,.png,.ogg,.flac,.mp3,.wav"
+          />
+          <div>UPLOAD</div>
+          <div class="txt-sm">
+            {{ uploadFile }}
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="mt-1 mb-1">
+      <select
+        class="form-select fontReg"
+        aria-label="Default"
+        id="cols"
+        name="cols"
+        [(ngModel)]="cols"
+        style="font-size: 12px"
+        (change)="on_change_width($event)"
+      >
+        <option
+          *ngFor="let data of dataService.width_options"
+          [value]="data.bs_def"
+        >
+          {{ data.title }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <button
+      mat-raised-button
+      style="background-color: #444; color: #eee"
+      class="txt-sm"
+      (click)="save_image_data()"
+    >
+      Upload
+    </button>
+  </div>
+  <div class="mt-2 text-center txt-sm">
+    {{ resp }}
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.table a {
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.table a:hover {
+  color: blue;
+  text-decoration: underline;
+  font-weight: 900;
+  transition: 0.5s;
+}

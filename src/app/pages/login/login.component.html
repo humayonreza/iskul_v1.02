@@ -1,0 +1,101 @@
+<div class="row d-flex align-items-center justify-content-center">
+  <div class="col-sm-10 text-center" style="text-shadow: 2px 3px #777">
+    <h1 class="underline" style="font-weight: 900; font-size: 30px">
+      STUDENT LOGIN
+    </h1>
+    <img
+      src="{{ this.mediaPath + 'images/site/common/underline1.png' }}"
+      alt=""
+      height="25"
+      width="auto"
+      style="margin-top: -20px"
+    />
+  </div>
+  <div class="col-sm-10 p-2">
+    <div class="row">
+      <div class="col-sm-8 text-center" style="height: 250px">
+        <div class="p-4 shadow text-start bg-light">
+          <form #l="ngForm" autocomplete="off" (ngSubmit)="login(l.value)">
+            <div class="flex-start">
+              <img
+                class="logo"
+                src="{{ mediaPath + 'images/site/common/login_icon.png' }}"
+                alt=""
+                width="50"
+                height="50"
+              />
+              <h2 style="font-weight: 900; color: black">LOGIN PANEL</h2>
+            </div>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                ><mat-icon>alternate_email</mat-icon></span
+              >
+              <input
+                type="email"
+                class="form-control inputA"
+                placeholder="email"
+                id="student_email"
+                name="student_email"
+                [(ngModel)]="student_email"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+            <div class="input-group flex-nowrap mt-2">
+              <span class="input-group-text" id="addon-wrapping"
+                ><mat-icon>vpn_key</mat-icon></span
+              >
+              <input
+                type="password"
+                class="form-control inputA"
+                id="passwd"
+                name="passwd"
+                [(ngModel)]="passwd"
+                placeholder="password"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn-action" style="width: 100%">
+                Signin now
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-4 bg-light" style="height: 250px">
+        <div class="p-4 shadow">
+          <div class="flex-start">
+            <img
+              class="logo"
+              src="{{ mediaPath + 'images/site/common/signup_icon.png' }}"
+              alt=""
+              width="50"
+              height="50"
+            />
+            <h2 style="font-weight: 900; color: black">
+              SIGN UP AS NEW STUDENT
+            </h2>
+          </div>
+          <div>
+            <strong>Donot have account with us.</strong> Register with us
+            through simple steps. Please note that we need your photo id during
+            the process of registration. Also your name and email address should
+            be the exact match to your entry in USI database
+          </div>
+          <div style="margin-top: 45px">
+            <button
+              type="submit"
+              class="btn-action"
+              style="width: 100%"
+              (click)="signup_now()"
+            >
+              Signup now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

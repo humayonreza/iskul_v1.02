@@ -1,0 +1,32 @@
+<div class="row">
+  <div
+    class="col-sm-12 d-flex align-items-center justify-content-center"
+    style="margin-top: 65px"
+  >
+    <div class="col-sm-6" style="height: 90vh">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Payment</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of arrCoursesOwned">
+            <td>{{ data.course_title }}</td>
+            <td *ngIf="data.payment_state == 1">Successful</td>
+            <td *ngIf="data.payment_state == 0">
+              <a style="cursor: pointer; color: blue" (click)="pay_now(data)"
+                >Pay now</a
+              >
+            </td>
+            <td>{{ data.paid_amount + " AUD" }}</td>
+            <td><a (click)="access_course(data)">Access Course</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

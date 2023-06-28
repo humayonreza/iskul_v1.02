@@ -1,0 +1,99 @@
+<div class="row outer" style="margin-top: 65px">
+  <div
+    *ngIf="stateService.isSigned"
+    class="d-flex align-items-center justify-content-center"
+  >
+    <div class="col-sm-10 text-center" style="text-shadow: 2px 3px #777">
+      <h1 class="underline" style="font-weight: 900; font-size: 30px">
+        {{ full_name }}
+      </h1>
+      <img
+        src="{{ this.mediaPath + 'images/site/common/underline1.png' }}"
+        alt=""
+        height="25"
+        width="auto"
+        style="margin-top: -20px; padding-left: 6px"
+      />
+    </div>
+  </div>
+  <div class="col-sm-12 mt-3 panel-account" *ngIf="stateService.isSigned">
+    <div class="row" *ngIf="stateService.isSigned">
+      <div class="col-sm-3 text-center" *ngFor="let data of arrContents">
+        <div style="padding: 1px">
+          <div class="shadow header-panel" style="padding: 20px 2px">
+            <div>
+              <div>
+                <mat-icon class="icon" color="primary">{{
+                  data.icon
+                }}</mat-icon>
+              </div>
+              <h2>{{ data.title }}</h2>
+            </div>
+            <div class="mt-2 mb-3">
+              <button
+                mat-raised-button
+                class="btn-account"
+                (click)="onclick_option(data)"
+                style="width: 60%"
+              >
+                {{ data.title }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="panel-account"
+    *ngIf="idSelectedPanel == 1"
+    style="min-height: 50vh"
+  >
+    show profile
+  </div>
+  <div
+    class="panel-account"
+    *ngIf="idSelectedPanel == 2"
+    style="min-height: 50vh"
+  >
+    <div class="col-sm-12 d-flex align-items-center justify-content-center p-3">
+      <div class="col-sm-6">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Payment</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of arrCoursesOwned">
+              <td>{{ data.course_title }}</td>
+              <td *ngIf="data.payment_state == 1">Successful</td>
+              <td *ngIf="data.payment_state == 0">
+                <a style="cursor: pointer; color: blue" (click)="pay_now(data)"
+                  >Pay now</a
+                >
+              </td>
+              <td>
+                {{ data.paid_amount | currency : "AUD" : "symbol" : "0.0-0" }}
+              </td>
+              <td><a (click)="access_course(data)">Access Course</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    class="panel-account"
+    *ngIf="idSelectedPanel == 3"
+    style="min-height: 50vh"
+  >
+    Change Password
+  </div>
+  <div *ngIf="idSelectedPanel == 4" style="min-height: 90vh">
+    <app-login></app-login>
+  </div>
+</div>

@@ -1,0 +1,174 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+.slid {
+  margin: 3px;
+  padding: 25px;
+  border: 2px solid #f00;
+}
+
+.txt-header {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.txt-header-md {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.txt-header-sm {
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.txt-md {
+  font-size: 14px;
+}
+
+.txt-bg {
+  font-size: 16px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.a-learnmore {
+  color: black;
+  cursor: pointer;
+}
+
+.a-learnmore:hover {
+  color: bule;
+  cursor: pointer;
+  font-weight: bold;
+}
+// ============================= Flex ======================
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-action {
+  background-color: #23026e;
+  color: #eee;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  transition: 0.5s;
+}
+
+.btn-action:hover {
+  background-color: #eee;
+  letter-spacing: 1px;
+  color: #000;
+  padding: 10px 25px;
+  font-weight: 900;
+  border: 1px solid #555;
+  transition: 0.5s;
+}
+
+.btn-course-not-active {
+  background-color: #0d1226;
+  color: #ccc;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  transition: 0.5s;
+}
+
+.btn-course-not-active:hover {
+  background-color: #0b2176;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.btn-course-active {
+  background-color: #eee;
+  letter-spacing: 1px;
+  color: #000;
+  padding: 10px 25px;
+  font-weight: 900;
+  border: 1px solid #555;
+}
+
+.panel-info {
+  background-color: #0d1226;
+  color: white;
+}
+
+.bg-light {
+  background-color: #eee;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid black;
+  width: 140px;
+  text-align: center;
+  margin-right: 10px;
+  transition: 0.5s;
+}
+
+.upload-btn-wrapper:hover {
+  background-color: #0b2176;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.btn-image-wrapper {
+  border: 2px solid black;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

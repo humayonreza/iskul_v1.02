@@ -1,0 +1,82 @@
+<div class="flex p-2 shadow" style="background-color: #999; color: #eee">
+  <div style="width: 35%" class="p-1">
+    <input
+      type="text"
+      class="form-control"
+      id="total_rows"
+      name="total_rows"
+      [(ngModel)]="total_rows"
+      placeholder="Insert rows"
+    />
+  </div>
+  <div style="width: 35%" class="p-1">
+    <input
+      type="text"
+      class="form-control"
+      id="total_cols"
+      name="total_cols"
+      [(ngModel)]="total_cols"
+      placeholder="Insert cols"
+    />
+  </div>
+  <div *ngIf="!is_table_generated" style="width: 30%" class="p-1">
+    <button
+      mat-raised-button
+      style="padding: 7px 0; width: 100%"
+      (click)="generate_table_form()"
+      class="txt-sm"
+    >
+      Generate
+    </button>
+  </div>
+</div>
+<div class="mt-2" *ngIf="models">
+  <div style="background-color: #999">
+    <table class="table table-striped">
+      <tbody>
+        <tr *ngFor="let tr of models">
+          <td *ngFor="let cell of tr">
+            <textarea class="txtArea" id="cell.td" name="cell.td"></textarea>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <div *ngIf="is_table_generated">
+      <div style="padding-left: 10px">
+        <select
+          class="form-select fontReg"
+          aria-label="Default"
+          id="cols"
+          name="cols"
+          [(ngModel)]="cols"
+          style="font-size: 12px"
+          (change)="on_change_width($event)"
+        >
+          <option
+            *ngFor="let data of dataService.width_options"
+            [value]="data.bs_def"
+          >
+            {{ data.title }}
+          </option>
+        </select>
+      </div>
+      <div class="mt-2" style="padding-left: 10px">
+        <button
+          mat-raised-button
+          (click)="add_table_content()"
+          color="default"
+          class="txt-sm"
+          style="color: #eee; background-color: #444"
+        >
+          Save Table
+        </button>
+      </div>
+    </div>
+    <div class="text-center txt-sm">
+      {{ resp }}
+    </div>
+  </div>
+</div>
